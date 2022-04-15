@@ -5,13 +5,16 @@ object luisa {
 
 
 object floki {
-	const arma = ballesta
+	var arma = ballesta
 	method armaActual(){ return arma }
 	method encontrar(elemento) {
 		arma.utilizar()
 		if (arma.estaCargada()) {
 			elemento.recibirAtaque(arma.potencia())
 		}
+	}
+	method setArmaActual(nuevaArma) {
+		arma = nuevaArma
 	}
 }
 
