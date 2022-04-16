@@ -1,0 +1,37 @@
+import armas.*
+import jugadoresPersonajes.*
+
+test "Mario recolecta 45 y esta feliz por que lo ultim que encontro mide 20 metros de alto y el castillo tiene 170 de defensa." {
+	luisa.setPersonajeActivo(mario)
+	luisa.aparece(aurora)
+	luisa.aparece(castillo)
+	assert.equals(45,luisa.personajeActivo().totalRecolectado())
+	assert.that(luisa.personajeActivo().esFeliz())
+	assert.equals(castillo,luisa.personajeActivo().ultimoElementoEncontrado())
+	assert.equals(170,luisa.personajeActivo().ultimoElementoEncontrado().defensa())
+}
+
+test "Mario trabaja en la tipa, floki ataca al castillo y mario no esta feliz" {
+	floki.setArmaActual(jabalina)
+	luisa.setPersonajeActivo(mario)
+	luisa.aparece(tipa)
+	luisa.setPersonajeActivo(floki)
+	luisa.aparece(aurora)
+	luisa.aparece(castillo)
+	assert.equals(16,mario.totalRecolectado())
+	assert.equals(9,tipa.altura())
+	assert.that(not mario.esFeliz())
+	assert.equals(150,castillo.defensa())
+	assert.that(not floki.armaActual().estaCargada())
+}
+
+test "Floki no mata a aurora con ballesta, ataca al castillo y le quedan 8 flechas, mario no recolecta nada." {
+	floki.setArmaActual(ballesta)
+	luisa.setPersonajeActivo(floki)
+	luisa.aparece(aurora)
+	luisa.aparece(castillo)
+	assert.equals(0,mario.totalRecolectado())
+	assert.that(aurora.estaViva())
+	assert.that(ballesta.estaCargada())
+	assert.equals(8,ballesta.cantFlechas())
+}
