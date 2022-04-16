@@ -17,7 +17,7 @@ object luisa {
 
 // PERSONAJES
 
-object floki {
+object floki {	//Personaje guerrero
 	var arma = ballesta
 	method armaActual(){ return arma }
 	method encontrar(elemento) {
@@ -31,8 +31,7 @@ object floki {
 	}
 }
 
-
-object mario {
+object mario {	//Personaje trabajador.
 	var valorRecolectado = 0
 	var ultimoElementoEncontrado
 	method encontrar(elemento) {
@@ -64,10 +63,10 @@ object castillo {
 		defensaActual -= potenciaDelAtaque
 	}
 	method recibirTrabajo() {
-		var recompensa = 0
+		var recompensa
 		if (defensaActual < 200) {
-			defensaActual = (defensaActual + 20).min(200)
 			recompensa = defensaActual / 5
+			defensaActual = (defensaActual + 20).min(200)
 		}
 		else {
 			recompensa = 0
@@ -76,7 +75,7 @@ object castillo {
 	}
 }
 
-object aurora {
+object aurora {	//Una vaca.
 	var estaViva = true
 	method altura() {
 		return 1
@@ -87,14 +86,14 @@ object aurora {
 		}
 	}
 	method recibirTrabajo() {
-		return 15 //Recompensa otorgada
+		return 15 //Recompensa otorgada.
 	}
 	method estaViva() {
 		return estaViva
 	}
 }
 
-object tipa {
+object tipa {	//Un arbol
 	var alturaActual = 8
 	method altura() {
 		return alturaActual
@@ -103,6 +102,6 @@ object tipa {
 	}
 	method recibirTrabajo() {
 		alturaActual += 1
-		return alturaActual * 2 //Recompensa otorgada
+		return (alturaActual-1) * 2 //Recompensa otorgada.
 	}
 }
