@@ -1,3 +1,5 @@
+//Armas de Floki
+
 object ballesta {
 	var flechas = 10
 	method potencia() {
