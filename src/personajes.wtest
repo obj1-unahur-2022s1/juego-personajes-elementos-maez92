@@ -1,4 +1,5 @@
 import armas.*
+import elementos.*
 import jugadoresPersonajes.*
 
 test "Mario recolecta 45 y esta feliz por que lo ultim que encontro mide 20 metros de alto y el castillo tiene 170 de defensa." {
